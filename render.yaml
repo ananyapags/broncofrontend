@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: bronco-buddies
+    env: node
+    plan: free
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: AIzaSyBE9qMhqM_MXnzecNGFvnHuweUOQQOsOEE
+        sync: false
+      - key: broncobuddies-8d238
+        sync: false
+      - key:1: 809866556719:web:d0b92c43ec09b311ccddda
+        sync: false
