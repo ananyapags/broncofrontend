@@ -12,11 +12,12 @@ async function startServer() {
 
   if (isProduction) {
     // Production: serve built static files
-    app.use(express.static(path.join(__dirname, "../dist")));
+    const distPath = path.join(__dirname, "../dist/public");
+    app.use(express.static(distPath));
     
     // Handle SPA routing - send all requests to index.html
     app.get("*", (req, res) => {
-      res.sendFile(path.join(__dirname, "../dist/index.html"));
+      res.sendFile(path.join(distPath, "index.html"));
     });
   } else {
     // Development: use Vite dev server
